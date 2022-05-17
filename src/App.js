@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function App() {
   const [token, setToken] = useState("")
@@ -45,6 +46,9 @@ function App() {
     <div>
       token: {token} <br />
       user: {JSON.stringify(user)}
+      <PayPalScriptProvider options={{ "client-id": "AYSqxS5OfccCMFJ_wahjEs27Oz4qjSqgsPClpesEED0cE3IivuVaqoVPEqycsYZrEKGx9ehZ3HovfOYP" }}>
+        <PayPalButtons style={{ layout: "horizontal" }} />
+      </PayPalScriptProvider>
     </div >
   );
 }
